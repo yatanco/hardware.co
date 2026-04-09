@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HARDWARE.co — Global Community & Accelerator for Hardware Makers</title>
+  <meta name="description" content="HARDWARE.co is a global community and accelerator for entrepreneurs, industry professionals and makers focused on hardware products. Based at betahaus, Berlin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #e8521a;
+      --dark-nav: #2a2a2a;
+      --black: #111111;
+      --white: #ffffff;
+      --off-white: #f4f4f2;
+      --gray: #888888;
+      --section-bg: #f7f6f3;
+      --display: 'Barlow Condensed', sans-serif;
+      --body: 'Barlow', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--black); font-family: var(--body); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--dark-nav); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; }
+    .nav-logo { font-family: var(--display); font-size: 30px; font-weight: 700; letter-spacing: 0.02em; color: var(--white); text-decoration: none; text-transform: uppercase; line-height: 1; }
+    .nav-logo .dot { color: var(--orange); }
+    .nav-links { display: flex; gap: 48px; list-style: none; }
+    .nav-links a { font-family: var(--body); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; padding-bottom: 3px; border-bottom: 2px solid transparent; }
+    .nav-links a:hover { color: var(--orange); border-bottom-color: var(--orange); }
+    .nav-apply { font-family: var(--body); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--orange); color: var(--white); text-decoration: none; padding: 10px 24px; transition: background 0.2s; }
+    .nav-apply:hover { background: #c8431a; }
+
+    /* HERO */
+    .hero { position: relative; width: 100%; height: 100vh; min-height: 580px; overflow: hidden; background: #111; display: flex; align-items: center; justify-content: center; }
+    .hero-video-wrap { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+    .hero-video-wrap iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; height: 100vh; min-width: 100%; min-height: 56.25vw; transform: translate(-50%, -50%); border: none; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.65) 100%); z-index: 2; }
+    .hero-content { position: relative; z-index: 3; text-align: center; color: var(--white); padding: 0 24px; max-width: 800px; }
+    .hero-content h1 { font-family: var(--display); font-size: clamp(60px, 9vw, 110px); font-weight: 900; text-transform: uppercase; line-height: 0.92; margin-bottom: 22px; text-shadow: 0 2px 32px rgba(0,0,0,0.6); letter-spacing: 0.02em; }
+    .hero-content h1 .dot { color: var(--orange); }
+    .hero-content p { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.85); max-width: 540px; margin: 0 auto 36px; line-height: 1.7; text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
+    .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-orange { background: var(--orange); color: var(--white); font-family: var(--body); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 36px; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-orange:hover { background: #c8431a; transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.65); font-family: var(--body); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 36px; text-decoration: none; transition: border-color 0.2s, background 0.2s; display: inline-block; }
+    .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.4); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; animation: bob 2.2s ease infinite; }
+    .scroll-hint::before { content: ''; width: 1px; height: 36px; background: rgba(255,255,255,0.25); }
+    @keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
+
+    /* STATS STRIP */
+    .stats-strip { background: var(--dark-nav); display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr; }
+    .stats-div { background: rgba(255,255,255,0.08); }
+    .stat-box { text-align: center; padding: 44px 24px; }
+    .stat-num { font-family: var(--display); font-size: 60px; font-weight: 900; color: var(--orange); line-height: 1; display: block; }
+    .stat-lbl { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 6px; display: block; }
+
+    /* SHARED SECTION */
+    .section { padding: 88px 80px; }
+    .section-sm { padding: 64px 80px; }
+    .section-bg { background: var(--section-bg); border-top: 1px solid #e8e6e0; border-bottom: 1px solid #e8e6e0; }
+    .section-dark { background: var(--dark-nav); color: var(--white); }
+    .section-dark .section-title { color: var(--white); }
+    .section-dark .section-subtitle { color: rgba(255,255,255,0.5); }
+    .section-orange { background: var(--orange); color: var(--white); }
+    .section-orange .section-title { color: var(--white); }
+    .section-black { background: var(--black); color: var(--white); }
+    .section-black .section-title { color: var(--white); }
+    .section-black .section-subtitle { color: rgba(255,255,255,0.45); }
+    .tag { font-family: var(--body); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+    .section-dark .tag { color: rgba(255,255,255,0.4); }
+    .section-orange .tag { color: rgba(255,255,255,0.65); }
+    .section-black .tag { color: rgba(255,255,255,0.35); }
+    .section-title { font-family: var(--display); font-size: clamp(38px, 4vw, 62px); font-weight: 700; line-height: 1.02; letter-spacing: 0.01em; text-transform: uppercase; margin-bottom: 18px; }
+    .section-subtitle { font-size: 17px; font-weight: 300; color: #555; max-width: 620px; line-height: 1.75; margin-bottom: 52px; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img { width: 100%; aspect-ratio: 4/3; background: #1e1e1e; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 100px; font-weight: 900; color: rgba(232,82,26,0.25); letter-spacing: -4px; }
+    .about-text p { font-size: 16px; font-weight: 300; color: #444; line-height: 1.8; margin-bottom: 18px; }
+    .about-text p strong { font-weight: 600; color: var(--black); }
+
+    /* PILLARS */
+    .pillars { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: #ddd; }
+    .pillar { background: var(--white); padding: 44px 30px; transition: background 0.25s; cursor: default; }
+    .pillar:hover { background: var(--orange); }
+    .pillar:hover .p-icon, .pillar:hover .p-name, .pillar:hover .p-desc { color: var(--white); }
+    .p-icon { font-size: 34px; margin-bottom: 16px; display: block; transition: color 0.25s; }
+    .p-name { font-family: var(--display); font-size: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--black); margin-bottom: 10px; transition: color 0.25s; }
+    .p-desc { font-size: 14px; font-weight: 300; color: #666; line-height: 1.7; transition: color 0.25s; }
+
+    /* PROCESS */
+    .process { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; border: 1px solid #ddd; margin-top: 52px; }
+    .p-step { padding: 40px 26px; border-right: 1px solid #ddd; }
+    .p-step:first-child { border-top: 4px solid var(--orange); }
+    .p-step:last-child { border-right: none; }
+    .p-step-num { font-family: var(--display); font-size: 72px; font-weight: 900; color: rgba(0,0,0,0.05); line-height: 1; margin-bottom: 14px; }
+    .p-step-title { font-family: var(--display); font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--black); margin-bottom: 10px; }
+    .p-step-desc { font-size: 13px; font-weight: 300; color: #666; line-height: 1.7; }
+
+    /* MENTORS */
+    .mentor-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 52px; }
+    .m-tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.65); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 16px; transition: background 0.2s, border-color 0.2s; }
+    .m-tag:hover { background: var(--orange); border-color: var(--orange); color: var(--white); }
+    .mentors { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: rgba(255,255,255,0.04); }
+    .m-card { background: #222; padding: 30px 26px; position: relative; overflow: hidden; }
+    .m-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--orange); transform: scaleY(0); transition: transform 0.3s; transform-origin: bottom; }
+    .m-card:hover::before { transform: scaleY(1); }
+    .m-name { font-family: var(--display); font-size: 20px; font-weight: 700; text-transform: uppercase; color: var(--white); margin-bottom: 4px; line-height: 1.1; }
+    .m-role { font-size: 11px; color: var(--orange); font-weight: 600; letter-spacing: 0.08em; margin-bottom: 12px; text-transform: uppercase; }
+    .m-bio { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.65; font-weight: 300; }
+    .mentors-note { margin-top: 32px; color: rgba(255,255,255,0.3); font-size: 13px; font-style: italic; text-align: center; }
+
+    /* ALUMNI */
+    .alumni { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: #e0ddd7; margin-top: 52px; }
+    .al-card { background: var(--white); padding: 40px 34px; transition: box-shadow 0.2s; }
+    .al-card:hover { box-shadow: inset 0 0 0 2px var(--orange); }
+    .al-name { font-family: var(--display); font-size: 30px; font-weight: 700; text-transform: uppercase; color: var(--black); margin-bottom: 4px; }
+    .al-batch { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 14px; }
+    .al-desc { font-size: 14px; color: #666; line-height: 1.75; font-weight: 300; margin-bottom: 14px; }
+    .al-win { font-size: 12px; font-weight: 600; color: #333; padding-top: 14px; border-top: 1px solid #eee; display: flex; align-items: flex-start; gap: 6px; }
+    .al-win::before { content: '↗'; color: var(--orange); font-size: 14px; flex-shrink: 0; }
+
+    /* PARTNERS */
+    .partners { display: grid; grid-template-columns: repeat(6,1fr); gap: 2px; background: #ddd; margin-top: 44px; }
+    .partner { background: var(--white); display: flex; align-items: center; justify-content: center; padding: 32px 16px; min-height: 90px; font-family: var(--display); font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #c0bdb8; transition: color 0.2s, background 0.2s; text-align: center; }
+    .partner:hover { color: var(--black); background: #f0ede8; }
+
+    /* COMMUNITY */
+    .community-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .community-left p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 18px; }
+    .comm-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.18); }
+    .comm-box { background: rgba(0,0,0,0.18); padding: 30px 26px; }
+    .cb-num { font-family: var(--display); font-size: 52px; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 4px; }
+    .cb-lbl { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+
+    /* EVENTS */
+    .events { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: #e0ddd7; margin-top: 52px; }
+    .ev-card { background: var(--white); padding: 36px 32px; }
+    .ev-date { font-family: var(--display); font-size: 44px; font-weight: 900; color: var(--orange); line-height: 1; margin-bottom: 2px; }
+    .ev-month { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #aaa; font-weight: 600; margin-bottom: 16px; }
+    .ev-title { font-family: var(--display); font-size: 22px; font-weight: 700; text-transform: uppercase; color: var(--black); margin-bottom: 10px; }
+    .ev-desc { font-size: 14px; color: #666; line-height: 1.7; font-weight: 300; }
+    .ev-loc { margin-top: 18px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #aaa; font-weight: 500; }
+
+    /* BLOG */
+    .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: #ddd; margin-top: 48px; }
+    .blog-card { background: var(--white); padding: 36px 30px; }
+    .blog-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 10px; }
+    .blog-title { font-family: var(--display); font-size: 22px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; line-height: 1.1; color: var(--black); }
+    .blog-excerpt { font-size: 14px; color: #666; line-height: 1.7; font-weight: 300; }
+
+    /* APPLY */
+    .apply-inner { text-align: center; }
+    .apply-inner .section-title { font-size: clamp(52px, 7vw, 96px); }
+    .apply-inner .section-subtitle { margin: 0 auto 48px; }
+
+    /* FOOTER */
+    footer { background: #181818; border-top: 1px solid #252525; padding: 64px 80px 36px; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .fb .nav-logo { display: block; margin-bottom: 16px; font-size: 26px; }
+    .fb p { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.75; font-weight: 300; max-width: 280px; }
+    .fb .f-note { margin-top: 14px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+    .fc h4 { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 18px; font-weight: 600; }
+    .fc ul { list-style: none; }
+    .fc li { margin-bottom: 10px; }
+    .fc a { font-size: 14px; color: rgba(255,255,255,0.45); text-decoration: none; font-weight: 300; transition: color 0.2s; }
+    .fc a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; display: flex; justify-content: space-between; }
+    .footer-bottom span { font-size: 12px; color: rgba(255,255,255,0.22); letter-spacing: 0.05em; }
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      nav{padding:0 24px;} .nav-links{gap:28px;}
+      .section,.section-sm{padding:64px 32px;}
+      .stats-strip{grid-template-columns:1fr 1fr;} .stats-div{display:none;}
+      .pillars{grid-template-columns:1fr 1fr;}
+      .process{grid-template-columns:1fr 1fr;}
+      .mentors{grid-template-columns:1fr 1fr;}
+      .alumni{grid-template-columns:1fr 1fr;}
+      .partners{grid-template-columns:repeat(3,1fr);}
+      .events{grid-template-columns:1fr;}
+      .about-grid,.community-inner{grid-template-columns:1fr;gap:40px;}
+      footer{padding:48px 32px 32px;}
+      .footer-top{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:640px){
+      .nav-links,.nav-apply{display:none;}
+      .section,.section-sm{padding:48px 20px;}
+      .stats-strip{grid-template-columns:1fr 1fr;}
+      .pillars,.mentors,.alumni,.blog-grid{grid-template-columns:1fr;}
+      .partners{grid-template-columns:1fr 1fr;}
+      .process{grid-template-columns:1fr;}
+      .comm-boxes{grid-template-columns:1fr 1fr;}
+      footer,.footer-top{grid-template-columns:1fr;padding:32px 20px;}
+      .footer-bottom{flex-direction:column;gap:8px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">HARDWARE<span class="dot">.co</span></a>
+    <ul class="nav-links">
+      <li><a href="#accelerator">Accelerator</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a href="#apply" class="nav-apply">Apply Now</a>
+  </nav>
+
+  <!-- HERO + VIMEO VIDEO -->
+  <section class="hero">
+    <div class="hero-video-wrap">
+      <iframe
+        src="https://player.vimeo.com/video/211457676?autoplay=1&muted=1&loop=1&background=1"
+        allow="autoplay; fullscreen"
+        title="HARDWARE.co — 8 Things You Need to Know About Hardware.co"
+      ></iframe>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>HARDWARE<span class="dot">.co</span></h1>
+      <p>A global community and accelerator for entrepreneurs, industry professionals, and makers dedicated to creating innovative hardware products and companies.</p>
+      <div class="hero-ctas">
+        <a href="#apply" class="btn-orange">Apply for Next Batch</a>
+        <a href="#accelerator" class="btn-ghost">Learn More</a>
+      </div>
+    </div>
+    <div class="scroll-hint">scroll</div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stat-box reveal"><span class="stat-num">250+</span><span class="stat-lbl">Companies Invested</span></div>
+    <div class="stats-div"></div>
+    <div class="stat-box reveal d1"><span class="stat-num">50+</span><span class="stat-lbl">Expert Mentors</span></div>
+    <div class="stats-div"></div>
+    <div class="stat-box reveal d2"><span class="stat-num">14</span><span class="stat-lbl">Day Program</span></div>
+    <div class="stats-div"></div>
+    <div class="stat-box reveal d3"><span class="stat-num">0%</span><span class="stat-lbl">Equity Taken</span></div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="about-grid">
+      <div class="about-img reveal">HW.co</div>
+      <div class="reveal d1">
+        <p class="tag">Our Story</p>
+        <h2 class="section-title">Born in Berlin,<br>built for the world.</h2>
+        <div class="about-text">
+          <p><strong>HARDWARE.co began in 2013</strong> as a small, informal meetup in Berlin for hardware entrepreneurs, makers, and enthusiasts to exchange advice, questions, and stories of success and failure.</p>
+          <p>The group quickly grew too large for its own meetups and pitch events. The organisers realised that interest in hardware technology flourished — both in Berlin and worldwide. To keep the community spirit while becoming professional enough to serve more people, they <strong>partnered with the founders of betahaus</strong> and established HARDWARE.co.</p>
+          <p>Today, the HARDWARE.co Accelerator, Lab, Meetups, and Online Platform form a multichannel resource giving community members the opportunity to create leading products and companies — supporting every stage of hardware development, from ideas to prototypes to investments and beyond.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <div class="pillars">
+    <div class="pillar reveal"><span class="p-icon">⚡</span><div class="p-name">Accelerator</div><p class="p-desc">An intensive 14-day free program packed with workshops, mentorship, and one-on-one sessions with 50+ industry professionals and investors.</p></div>
+    <div class="pillar reveal d1"><span class="p-icon">🔩</span><div class="p-name">Lab</div><p class="p-desc">24/7 access to the HARDWARE.co Electronics Lab at betahaus — fully equipped for prototyping, electronics, and hardware development.</p></div>
+    <div class="pillar reveal d2"><span class="p-icon">🌐</span><div class="p-name">Meetups</div><p class="p-desc">Regular community gatherings in Berlin and worldwide connecting founders, engineers, designers, and investors building hardware.</p></div>
+    <div class="pillar reveal d3"><span class="p-icon">💻</span><div class="p-name">Platform</div><p class="p-desc">Our online hub where the global community stays connected, shares resources, and supports each other long after the program ends.</p></div>
+  </div>
+
+  <!-- ACCELERATOR -->
+  <section class="section section-bg" id="accelerator">
+    <p class="tag reveal">The Program</p>
+    <h2 class="section-title reveal">Not your average accelerator.</h2>
+    <p class="section-subtitle reveal">An intensive 14-day program. Zero equity. No IP taken. No strings attached. Just world-class mentorship, real industry connections, and a Demo Day in front of Berlin's top investors and corporate partners.</p>
+    <div class="process">
+      <div class="p-step reveal"><div class="p-step-num">01</div><div class="p-step-title">Apply</div><p class="p-step-desc">Submit your application. Early-stage teams and individuals building hardware products of all kinds are welcome to apply.</p></div>
+      <div class="p-step reveal d1"><div class="p-step-num">02</div><div class="p-step-title">Orientation</div><p class="p-step-desc">Meet your cohort, connect with mentors and corporate partners, and get aligned on your goals for the 14-day sprint.</p></div>
+      <div class="p-step reveal d2"><div class="p-step-num">03</div><div class="p-step-title">Deep Dives</div><p class="p-step-desc">Intensive workshops on prototyping, DFM, business modelling, branding, legal, fundraising, and go-to-market strategy.</p></div>
+      <div class="p-step reveal d3"><div class="p-step-num">04</div><div class="p-step-title">Mentors</div><p class="p-step-desc">One-on-one time with 50+ mentors across electrical engineering, mechanical design, legal, marketing, and investment.</p></div>
+      <div class="p-step reveal d4"><div class="p-step-num">05</div><div class="p-step-title">Demo Day</div><p class="p-step-desc">PechaKucha-style public pitches in front of investors, VCs, and corporate partners — then join the 250+ company alumni network.</p></div>
+    </div>
+  </section>
+
+  <!-- MENTORS -->
+  <section class="section section-dark" id="mentors">
+    <p class="tag reveal">Expertise</p>
+    <h2 class="section-title reveal">50+ mentors.<br>Real expertise.</h2>
+    <p class="section-subtitle reveal">Our mentors are practitioners — hardware designers, serial founders, investors, engineers, and corporate partners who have built and shipped real products.</p>
+    <div class="mentor-tags reveal">
+      <span class="m-tag">Electrical Engineering</span>
+      <span class="m-tag">Mechanical Engineering</span>
+      <span class="m-tag">Prototyping & DFM</span>
+      <span class="m-tag">Business Modelling</span>
+      <span class="m-tag">Branding & Marketing</span>
+      <span class="m-tag">Legal & IP</span>
+      <span class="m-tag">Fundraising</span>
+      <span class="m-tag">Manufacturing</span>
+      <span class="m-tag">Pitch Training</span>
+      <span class="m-tag">Supply Chain</span>
+      <span class="m-tag">IoT & Connectivity</span>
+      <span class="m-tag">Product Design</span>
+      <span class="m-tag">Go-to-Market</span>
+      <span class="m-tag">Crowdfunding</span>
+    </div>
+    <div class="mentors">
+      <div class="m-card reveal">
+        <div class="m-name">Yatan Blumenthal</div>
+        <div class="m-role">Co-Founder & Accelerator Chief, HARDWARE.co</div>
+        <p class="m-bio">Leads the HARDWARE.co accelerator program. Deep expertise in hardware ecosystems, community building, and startup acceleration in Berlin and globally.</p>
+      </div>
+      <div class="m-card reveal d1">
+        <div class="m-name">Edward Eichstetter</div>
+        <div class="m-role">Hardware Entrepreneur · Guinness Record Holder</div>
+        <p class="m-bio">Builder of the world's fastest electric car, recorded in the Guinness Book of Records. Keynote speaker at Batch #1 kickoff — proof hardware is hard but worth it.</p>
+      </div>
+      <div class="m-card reveal d2">
+        <div class="m-name">Siemens Mobility</div>
+        <div class="m-role">Corporate Partner — IoT & Autonomous Systems</div>
+        <p class="m-bio">Siemens brings deep industrial expertise in IoT, autonomous systems, and enterprise hardware. Platinum partner offering pilot projects and direct collaboration.</p>
+      </div>
+      <div class="m-card reveal d3">
+        <div class="m-name">Deutsche Bahn Mindbox</div>
+        <div class="m-role">Corporate Partner — Logistics & Mobility</div>
+        <p class="m-bio">DB Mindbox connects hardware startups to real-world logistics challenges. Wildcard spots in their own accelerator and pilot deployment across Europe.</p>
+      </div>
+      <div class="m-card reveal">
+        <div class="m-name">Bosch Car Multimedia</div>
+        <div class="m-role">Corporate Partner — Automotive Hardware</div>
+        <p class="m-bio">Bosch partners with HARDWARE.co startups building next-gen automotive and connected hardware solutions. Access to their engineering and manufacturing network.</p>
+      </div>
+      <div class="m-card reveal d1">
+        <div class="m-name">Audi</div>
+        <div class="m-role">Corporate Partner — Automotive Experience</div>
+        <p class="m-bio">Audi brings automotive design expertise and real-world hardware challenges to the program. Winners receive driving experiences and collaboration opportunities.</p>
+      </div>
+      <div class="m-card reveal d2">
+        <div class="m-name">Legal Specialist</div>
+        <div class="m-role">IP, Patents & Hardware Compliance</div>
+        <p class="m-bio">Specialist in intellectual property, patent strategy, and regulatory compliance for hardware products across EU and international markets. Available for 1-on-1s.</p>
+      </div>
+      <div class="m-card reveal d3">
+        <div class="m-name">DFM Expert</div>
+        <div class="m-role">Design for Manufacturing & Supply Chain</div>
+        <p class="m-bio">Hands-on manufacturing expertise from first prototype to mass production. Helps startups avoid the most expensive mistakes in hardware development.</p>
+      </div>
+    </div>
+    <p class="mentors-note reveal">50+ mentors in total across all expertise areas — full mentor roster shared with accepted teams.</p>
+  </section>
+
+  <!-- ALUMNI -->
+  <section class="section" id="portfolio">
+    <p class="tag reveal">Alumni</p>
+    <h2 class="section-title reveal">Products that made it.</h2>
+    <p class="section-subtitle reveal">HARDWARE.co alumni have raised millions, won international design awards, and shipped to customers worldwide.</p>
+    <div class="alumni">
+      <div class="al-card reveal">
+        <div class="al-name">Miito</div>
+        <div class="al-batch">Batch #2</div>
+        <p class="al-desc">An elegant, energy-saving alternative to the electric kettle. Miito heats only the liquid you need using an induction rod and receiver — no overfilling, no waste.</p>
+        <div class="al-win">James Dyson Award Winner · €800K+ on Kickstarter</div>
+      </div>
+      <div class="al-card reveal d1">
+        <div class="al-name">Senic</div>
+        <div class="al-batch">Batch #1</div>
+        <p class="al-desc">A beautifully minimal smart home interface (Nuimo) letting you control connected devices with intuitive gestures. Went on to Y Combinator after HARDWARE.co.</p>
+        <div class="al-win">Y Combinator · Crowdfunding 5× oversubscribed</div>
+      </div>
+      <div class="al-card reveal d2">
+        <div class="al-name">Soundbrenner</div>
+        <div class="al-batch">Batch #3</div>
+        <p class="al-desc">A wearable metronome that lets musicians feel the beat through vibration. The Pulse is now used by over 250,000 musicians across the globe.</p>
+        <div class="al-win">250,000+ musicians worldwide · Global retail presence</div>
+      </div>
+      <div class="al-card reveal">
+        <div class="al-name">LUUV</div>
+        <div class="al-batch">Batch #3</div>
+        <p class="al-desc">A compact camera stabilizer for smartphones and action cameras. Raised international funding via crowdfunding and launched across European and US markets.</p>
+        <div class="al-win">Crowdfunding success · International distribution</div>
+      </div>
+      <div class="al-card reveal d1">
+        <div class="al-name">Sensefinity</div>
+        <div class="al-batch">Batch #5</div>
+        <p class="al-desc">An integrated IoT platform for global asset tracking, compliance monitoring, and logistics management from Portugal. Jury's Choice at Demo Day #5.</p>
+        <div class="al-win">Jury's Choice · Siemens pilot partnership offer</div>
+      </div>
+      <div class="al-card reveal d2">
+        <div class="al-name">Dorbeetle</div>
+        <div class="al-batch">Batch #5</div>
+        <p class="al-desc">An autonomous cleaning robot from Estonia — spotted by Deutsche Bahn for potential deployment across their train station network across Germany and Europe.</p>
+        <div class="al-win">DB Mindbox Wildcard · Enterprise deployment pilot</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="section-sm section-bg" id="partners">
+    <p class="tag reveal">Partners & Sponsors</p>
+    <h2 class="section-title reveal">Industry heavyweights.<br>Behind every batch.</h2>
+    <div class="partners">
+      <div class="partner reveal">Siemens</div>
+      <div class="partner reveal d1">Deutsche Bahn</div>
+      <div class="partner reveal d2">Bosch</div>
+      <div class="partner reveal d3">betahaus</div>
+      <div class="partner reveal">Conrad</div>
+      <div class="partner reveal d1">Audi</div>
+      <div class="partner reveal d2">Texas Instruments</div>
+      <div class="partner reveal d3">Formlabs</div>
+      <div class="partner reveal">Schleicher</div>
+      <div class="partner reveal d1">AtomLeap</div>
+      <div class="partner reveal d2">Alphaboard</div>
+      <div class="partner reveal d3">Kiwi.ki</div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="section section-orange" id="community">
+    <div class="community-inner">
+      <div class="community-left">
+        <p class="tag" style="color:rgba(255,255,255,0.6)">Community</p>
+        <h2 class="section-title reveal">Always active.<br>Always growing.</h2>
+        <p class="reveal">The HARDWARE.co community is more than a 14-day program. Our online platform, regular meetups, and alumni network keep founders connected long after Demo Day.</p>
+        <p class="reveal">Whether you're looking for a co-founder, a manufacturer, a mentor, or your next investor — the community has your back.</p>
+        <a href="#apply" class="btn-ghost reveal" style="margin-top:24px;">Join the Community</a>
+      </div>
+      <div class="comm-boxes reveal d2">
+        <div class="comm-box"><div class="cb-num">7+</div><div class="cb-lbl">Batches completed</div></div>
+        <div class="comm-box"><div class="cb-num">250+</div><div class="cb-lbl">Alumni companies</div></div>
+        <div class="comm-box"><div class="cb-num">50+</div><div class="cb-lbl">Active mentors</div></div>
+        <div class="comm-box"><div class="cb-num">10+</div><div class="cb-lbl">Countries represented</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="section" id="events">
+    <p class="tag reveal">Events</p>
+    <h2 class="section-title reveal">Find us in the wild.</h2>
+    <p class="section-subtitle reveal">Regular meetups, workshops, and demo days at betahaus Berlin and beyond. The HARDWARE.co community is always active.</p>
+    <div class="events">
+      <div class="ev-card reveal">
+        <div class="ev-date">TBA</div>
+        <div class="ev-month">Next Cohort</div>
+        <div class="ev-title">Batch #8 Accelerator</div>
+        <p class="ev-desc">Applications are open for the next cohort. 14 days of intensive mentorship, workshops, and a public Demo Day in front of investors and corporate partners.</p>
+        <div class="ev-loc">📍 betahaus Labs, Berlin</div>
+      </div>
+      <div class="ev-card reveal d1">
+        <div class="ev-date">Monthly</div>
+        <div class="ev-month">Community</div>
+        <div class="ev-title">Hardware Meetup Berlin</div>
+        <p class="ev-desc">The original HARDWARE.co meetup — makers, entrepreneurs and enthusiasts sharing advice, pitches, and project updates in a relaxed setting.</p>
+        <div class="ev-loc">📍 betahaus Innospace, Berlin</div>
+      </div>
+      <div class="ev-card reveal d2">
+        <div class="ev-date">Each Batch</div>
+        <div class="ev-month">Showcase</div>
+        <div class="ev-title">Demo Day</div>
+        <p class="ev-desc">PechaKucha-style public pitches from the latest cohort, followed by live demos, rapid-fire investor sessions, networking, and celebrations. Open to all.</p>
+        <div class="ev-loc">📍 betahaus Arena, Berlin</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="section section-bg" id="blog">
+    <p class="tag reveal">Blog</p>
+    <h2 class="section-title reveal">From the community.</h2>
+    <p class="section-subtitle reveal">Stories, learnings, and news from HARDWARE.co batches, alumni, and the broader hardware maker scene.</p>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-tag">Demo Day Recap</div>
+        <div class="blog-title">Batch #5 Demo Day: Our Most Energetic Yet</div>
+        <p class="blog-excerpt">Sensefinity, BEAD, Car2Ad and the rest of Batch #5 took to the Innospace stage for PechaKucha pitches in front of investors and corporate partners including Siemens, Deutsche Bahn and Audi.</p>
+      </div>
+      <div class="blog-card reveal d1">
+        <div class="blog-tag">Alumni News</div>
+        <div class="blog-title">Miito Wins James Dyson Award</div>
+        <p class="blog-excerpt">HARDWARE.co alumni Miito scooped the prestigious James Dyson Award and surpassed €800K on Kickstarter with their energy-saving induction kettle alternative.</p>
+      </div>
+      <div class="blog-card reveal d2">
+        <div class="blog-tag">Partnership News</div>
+        <div class="blog-title">Conrad Electronics Lab Now Open at betahaus</div>
+        <p class="blog-excerpt">The new HARDWARE.co Electronics Lab — made possible by Conrad — opens at betahaus, offering full prototyping and electronics access to residents and accelerator startups.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY CTA -->
+  <section class="section section-black" id="apply">
+    <div class="apply-inner">
+      <p class="tag" style="text-align:center">Next Batch</p>
+      <h2 class="section-title reveal">Ready to build?</h2>
+      <p class="section-subtitle reveal">Applications for our next cohort are open. Zero equity, no strings attached — just 14 days that could change everything for your hardware startup.</p>
+      <div class="hero-ctas reveal">
+        <a href="mailto:apply@hardware.co" class="btn-orange">Apply via Email</a>
+        <a href="https://www.f6s.com" target="_blank" rel="noopener" class="btn-ghost">Apply on F6S</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="fb">
+        <a href="#" class="nav-logo">HARDWARE<span class="dot">.co</span></a>
+        <p>A global community and accelerator for entrepreneurs, industry professionals, and makers dedicated to creating innovative hardware products and companies.</p>
+        <p class="f-note">Based at betahaus · Kreuzberg, Berlin</p>
+      </div>
+      <div class="fc">
+        <h4>Program</h4>
+        <ul>
+          <li><a href="#accelerator">Accelerator</a></li>
+          <li><a href="#mentors">Mentors</a></li>
+          <li><a href="#portfolio">Alumni</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#apply">Apply</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#community">Overview</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#">Lab Access</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="mailto:hello@hardware.co">Contact</a></li>
+          <li><a href="https://betahaus.com" target="_blank" rel="noopener">betahaus Berlin</a></li>
+          <li><a href="https://twitter.com/hardwareco" target="_blank" rel="noopener">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© HARDWARE.co — All rights reserved</span>
+      <span>Kreuzberg, Berlin · hardware.co</span>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const els = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.08 });
+    els.forEach(el => obs.observe(el));
+
+    // Nav active link
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const links = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+      links.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--orange)' : '';
+        a.style.borderBottomColor = a.getAttribute('href') === '#' + cur ? 'var(--orange)' : 'transparent';
+      });
+    });
+  </script>
+</body>
+</html>
