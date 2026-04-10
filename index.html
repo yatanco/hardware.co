@@ -1,237 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HARDWARE.co — Global Community & Accelerator · Berlin 2013–2017</title>
-  <meta name="description" content="HARDWARE.co was a global community and accelerator for entrepreneurs, industry professionals and makers dedicated to the creation of innovative hardware products and companies. Based at betahaus, Berlin." />
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X544Z8YQT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-7X544Z8YQT');
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --orange: #e8521a;
-      --nav: #2b2b2b;
-      --black: #111;
-      --white: #fff;
-      --off: #f5f4f1;
-      --border: #e2e0da;
-      --D: 'Barlow Condensed', sans-serif;
-      --B: 'Barlow', sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--B); color: var(--black); background: var(--white); overflow-x: hidden; }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-      background: var(--nav); height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px;
-    }
-    .logo { font-family: var(--D); font-size: 26px; font-weight: 700; color: var(--white); letter-spacing: .03em; text-transform: uppercase; }
-    .logo span { color: var(--orange); }
-    nav ul { display: flex; gap: 36px; list-style: none; }
-    nav ul a { font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75); transition: color .2s; }
-    nav ul a:hover { color: var(--orange); }
-    .archive-pill {
-      font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-      background: rgba(232,82,26,.15); color: var(--orange);
-      border: 1px solid rgba(232,82,26,.3); padding: 6px 14px;
-    }
-
-    /* ── HERO ── */
-    #hero {
-      background: #0e0e0e;
-      display: flex; flex-direction: column; align-items: center;
-      padding: 120px 40px 64px;
-    }
-    .hero-body { text-align: center; color: var(--white); max-width: 780px; width: 100%; }
-    .video-wrap {
-      width: 100%; max-width: 860px;
-      margin-top: 48px;
-      position: relative; padding-bottom: 56.25%;
-      background: #000;
-    }
-    .video-wrap iframe {
-      position: absolute; inset: 0; width: 100%; height: 100%; border: none;
-    }
-    .hero-body h1 {
-      font-family: var(--D); font-size: clamp(64px,10vw,118px); font-weight: 900;
-      text-transform: uppercase; line-height: .9; letter-spacing: .02em; margin-bottom: 22px;
-      text-shadow: 0 2px 40px rgba(0,0,0,.55);
-    }
-    .hero-body h1 span { color: var(--orange); }
-    .hero-years {
-      font-family: var(--D); font-size: 18px; font-weight: 300; letter-spacing: .3em;
-      text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 24px;
-    }
-    .hero-body p { font-size: 18px; font-weight: 300; line-height: 1.72; color: rgba(255,255,255,.82); max-width: 520px; margin: 0 auto 36px; text-shadow: 0 1px 10px rgba(0,0,0,.45); }
-    .hero-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn-o { background: var(--orange); color: var(--white); font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 13px 30px; transition: background .2s; display: inline-block; font-family: var(--B); }
-    .btn-o:hover { background: #c8431a; }
-    .btn-g { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.4); font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 12px 30px; transition: border-color .2s; display: inline-block; font-family: var(--B); }
-    .btn-g:hover { border-color: rgba(255,255,255,.8); }
-
-
-    /* ── STATS ── */
-    .stats { background: var(--nav); display: grid; grid-template-columns: repeat(4,1fr); }
-    .stat { text-align: center; padding: 42px 20px; border-right: 1px solid rgba(255,255,255,.06); }
-    .stat:last-child { border-right: none; }
-    .stat-n { font-family: var(--D); font-size: 56px; font-weight: 900; color: var(--orange); line-height: 1; display: block; }
-    .stat-l { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-top: 5px; display: block; }
-
-    /* ── SECTIONS ── */
-    .sec { padding: 80px 80px; }
-    .sec-sm { padding: 56px 80px; }
-    .sec-bg { background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .sec-dark { background: var(--nav); color: var(--white); }
-    .sec-dark .sec-title { color: var(--white); }
-    .sec-dark .sec-sub { color: rgba(255,255,255,.45); }
-    .tag { font-size: 10px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
-    .sec-dark .tag { color: rgba(255,255,255,.4); }
-    .sec-title { font-family: var(--D); font-size: clamp(34px,4vw,58px); font-weight: 700; text-transform: uppercase; line-height: 1.02; letter-spacing: .01em; margin-bottom: 14px; }
-    .sec-sub { font-size: 16px; font-weight: 300; color: #555; max-width: 600px; line-height: 1.78; margin-bottom: 48px; }
-
-    /* reveal */
-    .rv { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-    .rv.on { opacity: 1; transform: none; }
-    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
-
-    /* ── PHOTO BANNER ── */
-    .photo-banner { display: grid; grid-template-columns: repeat(4,1fr); height: 260px; overflow: hidden; }
-    .photo-banner div { overflow: hidden; }
-    .photo-banner div img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: transform .6s ease, filter .4s; }
-    .photo-banner div:hover img { transform: scale(1.04); filter: grayscale(0%); }
-
-    /* ── ABOUT ── */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-    .about-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-    .about-text p { font-size: 15.5px; font-weight: 300; color: #444; line-height: 1.85; margin-bottom: 18px; }
-    .about-text p b { font-weight: 600; color: var(--black); }
-
-    /* ── PILLARS ── */
-    .pillars { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: #d8d5cf; }
-    .pillar { background: var(--white); padding: 40px 26px; transition: background .25s; }
-    .pillar:hover { background: var(--orange); }
-    .pillar:hover .pi,.pillar:hover .pn,.pillar:hover .pd { color: var(--white); }
-    .pi { font-size: 30px; margin-bottom: 12px; display: block; transition: color .25s; }
-    .pn { font-family: var(--D); font-size: 21px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--black); margin-bottom: 8px; transition: color .25s; }
-    .pd { font-size: 13px; font-weight: 300; color: #666; line-height: 1.72; transition: color .25s; }
-
-    /* ── ACCELERATOR PROCESS ── */
-    .process { display: grid; grid-template-columns: repeat(5,1fr); margin-top: 44px; border: 1px solid var(--border); }
-    .pstep { padding: 34px 22px; border-right: 1px solid var(--border); }
-    .pstep:first-child { border-top: 4px solid var(--orange); }
-    .pstep:last-child { border-right: none; }
-    .ps-n { font-family: var(--D); font-size: 64px; font-weight: 900; color: rgba(0,0,0,.05); line-height: 1; margin-bottom: 12px; }
-    .ps-t { font-family: var(--D); font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--black); margin-bottom: 8px; }
-    .ps-d { font-size: 13px; font-weight: 300; color: #666; line-height: 1.7; }
-
-    /* ── PARTNERS ── */
-    .partners-logos { display: flex; flex-wrap: wrap; gap: 2px; background: #d8d5cf; margin-top: 40px; }
-    .pl { background: var(--white); display: flex; align-items: center; justify-content: center; padding: 24px 32px; flex: 1 1 14%; min-width: 120px; }
-    .pl img { height: 32px; width: auto; max-width: 120px; object-fit: contain; filter: grayscale(100%) opacity(55%); transition: filter .25s; }
-    .pl:hover img { filter: grayscale(0%) opacity(100%); }
-
-    /* ── ALUMNI GRID ── */
-    .alumni-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: #d8d5cf; margin-top: 48px; }
-    .al { background: var(--white); padding: 28px 24px; transition: box-shadow .2s; }
-    .al:hover { box-shadow: inset 0 0 0 2px var(--orange); }
-    .al-name { font-family: var(--D); font-size: 22px; font-weight: 700; text-transform: uppercase; color: var(--black); margin-bottom: 4px; line-height: 1; }
-    .al-batch { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 10px; display: block; }
-    .al-desc { font-size: 12.5px; color: #666; line-height: 1.65; font-weight: 300; }
-
-    /* ── TESTIMONIAL ── */
-    .testimonial { background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 80px; }
-    .t-inner { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 48px 1fr; gap: 28px; align-items: start; }
-    .tq { font-family: var(--D); font-size: 88px; font-weight: 900; color: var(--orange); line-height: .8; }
-    .t-text p { font-size: 17px; font-weight: 300; color: #444; line-height: 1.82; font-style: italic; margin-bottom: 20px; }
-    .t-attr { font-size: 13px; font-weight: 600; color: var(--black); }
-    .t-attr span { font-weight: 300; color: #888; display: block; margin-top: 2px; font-size: 12px; }
-
-    /* ── ARCHIVE NOTICE ── */
-    .archive-notice {
-      background: #1a1a1a; color: rgba(255,255,255,.55);
-      padding: 28px 80px; display: flex; align-items: center; gap: 20px;
-      border-top: 2px solid var(--orange);
-    }
-    .archive-notice::before { content: '📦'; font-size: 22px; flex-shrink: 0; }
-    .archive-notice p { font-size: 14px; font-weight: 300; line-height: 1.6; }
-    .archive-notice p b { color: rgba(255,255,255,.8); font-weight: 500; }
-
-    /* ── FOOTER ── */
-    footer { background: #1a1a1a; padding: 52px 80px 32px; }
-    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-    .fb .logo { display: block; margin-bottom: 14px; font-size: 22px; }
-    .fb p { font-size: 13px; color: rgba(255,255,255,.35); line-height: 1.75; font-weight: 300; max-width: 260px; }
-    .fb .powered { margin-top: 18px; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.18); display: block; margin-bottom: 6px; }
-    .fb .pw-logos { display: flex; gap: 14px; align-items: center; margin-top: 6px; }
-    .fb .pw-logos span { font-family: var(--D); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: rgba(255,255,255,.28); }
-    .footer-social { display: flex; gap: 14px; margin-top: 16px; }
-    .footer-social a { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); transition: color .2s; }
-    .footer-social a:hover { color: var(--orange); }
-    .fc h4 { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.22); margin-bottom: 14px; font-weight: 600; }
-    .fc ul { list-style: none; }
-    .fc li { margin-bottom: 9px; }
-    .fc a { font-size: 13px; color: rgba(255,255,255,.4); font-weight: 300; transition: color .2s; }
-    .fc a:hover { color: var(--orange); }
-    .footer-bot { border-top: 1px solid rgba(255,255,255,.05); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
-    .footer-bot span { font-size: 11px; color: rgba(255,255,255,.18); letter-spacing: .04em; }
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:1024px){
-      nav{padding:0 24px;} nav ul{gap:20px;}
-      .sec,.sec-sm{padding:56px 32px;}
-      .about-grid{grid-template-columns:1fr; gap:36px;}
-      .pillars{grid-template-columns:1fr 1fr;}
-      .process{grid-template-columns:1fr 1fr;}
-      .alumni-grid{grid-template-columns:1fr 1fr 1fr;}
-      .partners-logos .pl{flex: 1 1 18%;}
-      .photo-banner{grid-template-columns:1fr 1fr;}
-      footer{padding:44px 32px 28px;}
-      .footer-top{grid-template-columns:1fr 1fr;}
-      .archive-notice,.testimonial{padding:40px 32px;}
-    }
-    @media(max-width:640px){
-      nav ul,.archive-pill{display:none;}
-      .sec,.sec-sm{padding:44px 20px;}
-      .stats{grid-template-columns:1fr 1fr;}
-      .pillars,.process,.alumni-grid{grid-template-columns:1fr 1fr;}
-      .photo-banner{grid-template-columns:1fr 1fr; height:200px;}
-      footer,.footer-top{grid-template-columns:1fr; padding:36px 20px 24px;}
-      .footer-bot{flex-direction:column; gap:6px;}
-      .archive-notice,.testimonial{padding:32px 20px;}
-      .t-inner{grid-template-columns:36px 1fr; gap:16px;}
-    }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Global Community & Accelerator for Hardware Makers — HARDWARE.co</title>
+<meta name="description" content="HARDWARE.co — Global community and accelerator for hardware makers. Berlin 2013–2017.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7X544Z8YQT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7X544Z8YQT');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/main.css">
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
-  <span class="logo">HARDWARE<span>.co</span></span>
+  <a href="/" class="logo">HARDWARE<span>.co</span></a>
   <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#accelerator">Accelerator</a></li>
-    <li><a href="#alumni">Alumni</a></li>
-    <li><a href="#partners">Partners</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#accelerator">Accelerator</a></li>
+    <li><a href="/#alumni">Alumni</a></li>
+    <li><a href="/#partners">Partners</a></li>
+    <li><a href="/blog/">Blog</a></li>
   </ul>
   <span class="archive-pill">2013 – 2017</span>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-body">
     <div class="hero-years rv">Berlin · 2013 – 2017</div>
@@ -243,42 +33,31 @@
     </div>
   </div>
   <div class="video-wrap">
-    <iframe
-      src="https://player.vimeo.com/video/211457676?color=e8521a&title=0&byline=0&portrait=0"
-      allow="autoplay; fullscreen; picture-in-picture"
-      allowfullscreen
-      title="8 Things You Need to Know About Hardware.co"
-    ></iframe>
+    <iframe src="https://player.vimeo.com/video/211457676?color=e8521a&title=0&byline=0&portrait=0"
+      allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+      title="8 Things You Need to Know About Hardware.co"></iframe>
   </div>
 </section>
 
-<!-- ARCHIVE NOTICE -->
 <div class="archive-notice">
   <p><b>HARDWARE.co is no longer active.</b> This page is preserved as an archive of the community, the accelerator program, and the 40+ startups that came through our doors between 2013 and 2017. The hardware community lives on.</p>
 </div>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat rv"><span class="stat-n">6</span><span class="stat-l">Accelerator Batches</span></div>
-  <div class="stat rv d1"><span class="stat-n">40+</span><span class="stat-l">Alumni Companies</span></div>
-  <div class="stat rv d2"><span class="stat-n">40+</span><span class="stat-l">Expert Mentors</span></div>
-  <div class="stat rv d3"><span class="stat-n">0%</span><span class="stat-l">Equity Ever Taken</span></div>
-</div>
+<div class="stats"><div class="stat rv"><span class="stat-n">6</span><span class="stat-l">Accelerator Batches</span></div>
+<div class="stat rv d1"><span class="stat-n">40+</span><span class="stat-l">Alumni Companies</span></div>
+<div class="stat rv d2"><span class="stat-n">40+</span><span class="stat-l">Expert Mentors</span></div>
+<div class="stat rv d3"><span class="stat-n">0%</span><span class="stat-l">Equity Ever Taken</span></div></div>
 
-<!-- PHOTO BANNER -->
 <div class="photo-banner">
-  <div><img src="assets/img/Hardware.coBatch6-DominikTryba2.jpg" alt="HARDWARE.co Batch 6" /></div>
-  <div><img src="assets/img/community1.jpg" alt="HARDWARE.co community" /></div>
-  <div><img src="assets/img/Hardware.coBatch6-DominikTryba6.jpg" alt="HARDWARE.co workspace" /></div>
-  <div><img src="assets/img/community2.jpg" alt="HARDWARE.co demo day" /></div>
+  <div><img src="./assets/img/Hardware.coBatch6-DominikTryba2.jpg" alt="HARDWARE.co Batch 6"></div>
+  <div><img src="./assets/img/community1.jpg" alt="HARDWARE.co community"></div>
+  <div><img src="./assets/img/Hardware.coBatch6-DominikTryba6.jpg" alt="HARDWARE.co workspace"></div>
+  <div><img src="./assets/img/community2.jpg" alt="HARDWARE.co demo day"></div>
 </div>
 
-<!-- ABOUT -->
 <section class="sec" id="about">
   <div class="about-grid">
-    <div class="rv">
-      <img src="assets/img/Team_Workspace.jpg" alt="HARDWARE.co at betahaus Berlin" class="about-img" />
-    </div>
+    <div class="rv"><img src="./assets/img/Team_Workspace.jpg" alt="HARDWARE.co at betahaus Berlin" class="about-img"></div>
     <div class="rv d1">
       <p class="tag">The Story</p>
       <h2 class="sec-title">Building the future of hardware.</h2>
@@ -291,7 +70,6 @@
   </div>
 </section>
 
-<!-- PILLARS -->
 <div class="pillars">
   <div class="pillar rv"><span class="pi">⚡</span><div class="pn">Accelerator</div><p class="pd">An intensive 14-day free program. One-on-one sessions with 40+ mentors including investors, lawyers, designers, manufacturers, and engineers. Zero equity, no IP taken.</p></div>
   <div class="pillar rv d1"><span class="pi">🔩</span><div class="pn">Lab</div><p class="pd">24/7 access to the HARDWARE.co Electronics Lab at betahaus — fully equipped for prototyping and electronics development, powered by Conrad Electronic.</p></div>
@@ -299,288 +77,362 @@
   <div class="pillar rv d3"><span class="pi">💻</span><div class="pn">Platform</div><p class="pd">An online platform keeping the global community active and connected — sharing resources, advice, and opportunities long after the program ended.</p></div>
 </div>
 
-<!-- ACCELERATOR -->
 <section class="sec sec-bg" id="accelerator">
   <p class="tag rv">The Program</p>
   <h2 class="sec-title rv">Not your average accelerator.</h2>
-  <p class="sec-sub rv">An intensive two-week acceleration. We made sure to pack as much networking, expertise and workshops into these weeks as we possibly could. Selected startups got one-on-one interaction with over 40 mentors and professionals — and we took <b>zero equity</b> and <b>no intellectual property</b>. No strings attached.</p>
+  <p class="sec-sub rv">An intensive two-week acceleration. We made sure to pack as much networking, expertise and workshops into these weeks as possible. Selected startups got one-on-one interaction with over 40 mentors — and we took <b>zero equity</b> and <b>no intellectual property</b>. No strings attached.</p>
   <div class="process">
-    <div class="pstep rv">
-      <div class="ps-n">01</div><div class="ps-t">Apply</div>
-      <p class="ps-d">Startups at any stage from ideation to finished prototype were welcome. Travel costs for foreign startups were partially covered.</p>
-    </div>
-    <div class="pstep rv d1">
-      <div class="ps-n">02</div><div class="ps-t">Selection</div>
-      <p class="ps-d">We selected teams we could accelerate fast — not only those with amazing products, but those who added quality to the overall hardware community.</p>
-    </div>
-    <div class="pstep rv d2">
-      <div class="ps-n">03</div><div class="ps-t">Accelerate</div>
-      <p class="ps-d">Two weeks of intensive workshops, open meetup events, personal meetings with industry partners, and one-on-one mentor sessions.</p>
-    </div>
-    <div class="pstep rv d3">
-      <div class="ps-n">04</div><div class="ps-t">Show & Tell</div>
-      <p class="ps-d">A public Demo Day where startups showcased to potential industry partners, investors, and HARDWARE.co alumni. Pilot projects and funding conversations started here.</p>
-    </div>
-    <div class="pstep rv d4">
-      <div class="ps-n">05</div><div class="ps-t">Alumni</div>
-      <p class="ps-d">Participating startups became part of the community permanently. Connections made during the program often formed the basis for growing their company.</p>
-    </div>
+    <div class="pstep rv"><div class="ps-n">01</div><div class="ps-t">Apply</div><p class="ps-d">Startups at any stage from ideation to finished prototype were welcome. Travel costs for foreign startups were partially covered.</p></div>
+    <div class="pstep rv d1"><div class="ps-n">02</div><div class="ps-t">Selection</div><p class="ps-d">We selected teams we could accelerate fast — not only those with amazing products, but those who added quality to the overall hardware community.</p></div>
+    <div class="pstep rv d2"><div class="ps-n">03</div><div class="ps-t">Accelerate</div><p class="ps-d">Two weeks of intensive workshops, open meetup events, personal meetings with industry partners, and one-on-one mentor sessions.</p></div>
+    <div class="pstep rv d3"><div class="ps-n">04</div><div class="ps-t">Show &amp; Tell</div><p class="ps-d">A public Demo Day where startups showcased to potential industry partners, investors, and HARDWARE.co alumni.</p></div>
+    <div class="pstep rv d4"><div class="ps-n">05</div><div class="ps-t">Alumni</div><p class="ps-d">Participating startups became part of the community permanently. Connections made during the program often formed the basis for growing their company.</p></div>
   </div>
 </section>
 
-<!-- ALUMNI -->
 <section class="sec" id="alumni">
   <p class="tag rv">Alumni</p>
   <h2 class="sec-title rv">40+ startups. 6 batches.</h2>
-  <p class="sec-sub rv">Hardware founders from around the world who came through HARDWARE.co between 2013 and 2017. Many went on to raise funding, win awards, and ship products globally.</p>
-  <div class="alumni-grid">
-    <div class="al rv">
-      <div class="al-name">Miito</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Heats liquids directly in the vessel — eliminating excess water heating. Won the James Dyson Award. Raised €800K+ on Kickstarter.</p>
-    </div>
-    <div class="al rv d1">
-      <div class="al-name">Senic</div><span class="al-batch">Batch #1</span>
-      <p class="al-desc">Replaces graphical UIs by turning everyday objects into haptic interfaces. Their Nuimo controller went on to Y Combinator.</p>
-    </div>
-    <div class="al rv d2">
-      <div class="al-name">Soundbrenner</div><span class="al-batch">Batch #3</span>
-      <p class="al-desc">A wearable metronome (the Pulse) letting musicians feel the beat. Used by 250,000+ musicians worldwide.</p>
-    </div>
-    <div class="al rv d3">
-      <div class="al-name">LUUV</div><span class="al-batch">Batch #3</span>
-      <p class="al-desc">A compact camera stabilizer for smartphones and action cameras. Successfully crowdfunded and distributed internationally.</p>
-    </div>
-    <div class="al rv">
-      <div class="al-name">Dronamics</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">Building next-gen cargo drones — 350kg payload, 2,500km range — to make same-day international delivery possible.</p>
-    </div>
-    <div class="al rv d1">
-      <div class="al-name">Quantum Systems</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Hybrid drone design combining rotary-wing and fixed-wing systems for 10kg payload over 500km range. Humanitarian and logistics use.</p>
-    </div>
-    <div class="al rv d2">
-      <div class="al-name">Sensefinity</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">IoT platform for global asset tracking, compliance monitoring, and logistics management. Jury's Choice at Demo Day #5.</p>
-    </div>
-    <div class="al rv d3">
-      <div class="al-name">Pockethernet</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Pocket-sized smartphone-connected network testing tools for IT professionals. Founded in Berlin 2014.</p>
-    </div>
-    <div class="al rv">
-      <div class="al-name">Dorbeetle</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">Autonomous cleaning robot platform for remote property maintenance. DB Mindbox Wildcard winner at Demo Day #5.</p>
-    </div>
-    <div class="al rv d1">
-      <div class="al-name">BioWatch</div><span class="al-batch">Batch #4</span>
-      <p class="al-desc">Brings vein recognition into wearables for seamless payment and authentication. Biometric security without a phone.</p>
-    </div>
-    <div class="al rv d2">
-      <div class="al-name">Joyride</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">Helps bicycle fleet managers and city planners get data to build sustainable bikesharing and cycling infrastructure.</p>
-    </div>
-    <div class="al rv d3">
-      <div class="al-name">Skysense</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Wireless drone charging pads. Charging is as easy as landing — wide landing area, works with any compatible drone.</p>
-    </div>
-    <div class="al rv">
-      <div class="al-name">Uniti</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">Light, short-range electric vehicles for city use. Safe, futuristic user experience with a minimal environmental footprint.</p>
-    </div>
-    <div class="al rv d1">
-      <div class="al-name">Car2Ad</div><span class="al-batch">Batch #4</span>
-      <p class="al-desc">Integrates online marketing with out-of-home advertising via digital billboards on car rooftops. Real-time targeted campaigns.</p>
-    </div>
-    <div class="al rv d2">
-      <div class="al-name">Remora</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">Controls small fishing boats currently unmonitored and heavily subsidised. Sustainable and ethical fishing tracking via IoT.</p>
-    </div>
-    <div class="al rv d3">
-      <div class="al-name">BEAD</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">IoT device that analyses and learns day cycles, user behavior, and occupancy changes in commercial buildings for energy optimisation.</p>
-    </div>
-    <div class="al rv">
-      <div class="al-name">BatSuite</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Wearable device bringing back an extra sense for the visually impaired by translating sonar echo into tactile feedback.</p>
-    </div>
-    <div class="al rv d1">
-      <div class="al-name">eCozy</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Makes homes smarter by turning household objects into objects of desire. Smart, beautiful home automation hardware.</p>
-    </div>
-    <div class="al rv d2">
-      <div class="al-name">Lumind</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">A glowing wrist wearable reminding people with diabetes of their last blood glucose level measurement. Medical wearable tech.</p>
-    </div>
-    <div class="al rv d3">
-      <div class="al-name">Junkbot</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">A DIY robotics kit helping children build real working robots from unwanted junk. Educational hardware for the next generation.</p>
-    </div>
-    <div class="al rv">
-      <div class="al-name">Full Windsor</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Innovative outdoor gear for cyclists and outdoor enthusiasts who appreciate high-quality equipment that performs and lasts.</p>
-    </div>
-    <div class="al rv d1">
-      <div class="al-name">Casitoo Design</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Making flexible distribution of electricity in homes and offices more aesthetically pleasing and accessible.</p>
-    </div>
-    <div class="al rv d2">
-      <div class="al-name">Smart Lumies</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Creating the future of early-stage education with embedded technology cubes that communicate with each other.</p>
-    </div>
-    <div class="al rv d3">
-      <div class="al-name">Phrame</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">System turning any car into a car-sharing vehicle. Cardless manipulation, parking integration, and fleet management.</p>
-    </div>
-    <div class="al rv">
-      <div class="al-name">Ridelogic</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">IoT platform creating a connected network of motorcycles by abstracting vehicle diagnostics and deriving actionable insights.</p>
-    </div>
-    <div class="al rv d1">
-      <div class="al-name">SecondScreen</div><span class="al-batch">Batch #4</span>
-      <p class="al-desc">Wireless in-vehicle entertainment system generating revenue while delighting passengers. Connected mobility hardware.</p>
-    </div>
-    <div class="al rv d2">
-      <div class="al-name">Bionic Light</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Extreme ultra high-power flashlight connected to your smartphone for intelligent, app-controlled lighting.</p>
-    </div>
-    <div class="al rv d3">
-      <div class="al-name">One Button Phone</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">The easiest phone to use, designed especially for elderly people and their caring relatives. Minimal, accessible hardware.</p>
-    </div>
-    <div class="al rv">
-      <div class="al-name">Dox</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">Hardware and software solutions increasing efficiency of operating and maintaining unmanned systems and drones.</p>
-    </div>
-    <div class="al rv d1">
-      <div class="al-name">StoryHome</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Enables you to tell and share stories easily with grandkids, friends, and family through voice and connected hardware.</p>
-    </div>
-    <div class="al rv d2">
-      <div class="al-name">BINe</div><span class="al-batch">Batch #4</span>
-      <p class="al-desc">World's first intelligent waste bin with auto-recognition software for sorting Pfand bottles and recyclables automatically.</p>
-    </div>
-    <div class="al rv d3">
-      <div class="al-name">Swocket</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Connected hardware product from the early HARDWARE.co community. An early IoT startup from the Berlin maker scene.</p>
-    </div>
-    <div class="al rv">
-      <div class="al-name">Trustless</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">Building CivicNet — a computing ecosystem, platform, and client devices delivering radically open infrastructure.</p>
-    </div>
-    <div class="al rv d1">
-      <div class="al-name">BeaconInside</div><span class="al-batch">Batch #3</span>
-      <p class="al-desc">Beacon hardware and platform for indoor proximity marketing, analytics, and location-based experiences.</p>
-    </div>
-    <div class="al rv d2">
-      <div class="al-name">Infra</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">Security vulnerability scanner for ethical hackers — continuously scans internal networks for vulnerabilities.</p>
-    </div>
-    <div class="al rv d3">
-      <div class="al-name">CloudYourCar</div><span class="al-batch">Batch #3</span>
-      <p class="al-desc">Car connectivity hub integrating mobile equipment with vehicles in a smart and simple way.</p>
-    </div>
-    <div class="al rv">
-      <div class="al-name">Time Rift Tours</div><span class="al-batch">Batch #2</span>
-      <p class="al-desc">Portable stereoscopic headset running 3D simulated versions of historic sites, bridging past and present through VR.</p>
-    </div>
-    <div class="al rv d1">
-      <div class="al-name">Headwave</div><span class="al-batch">Batch #5</span>
-      <p class="al-desc">Motorcycle helmet attachment turning any helmet into a music-capable, vibration-based audio system for riders.</p>
-    </div>
-    <div class="al rv d2">
-      <div class="al-name">CareToSave</div><span class="al-batch">Batch #3</span>
-      <p class="al-desc">Hardware and software solution helping healthcare providers and patients manage medical data and care more efficiently.</p>
-    </div>
-    <div class="al rv d3">
-      <div class="al-name">Neurofox</div><span class="al-batch">Batch #4</span>
-      <p class="al-desc">Blends AI and brain training into a cutting-edge neurotech product. Won the betahaus award at Batch #4 Demo Day.</p>
-    </div>
-  </div>
+  <p class="sec-sub rv">Hardware founders from around the world who came through HARDWARE.co between 2013 and 2017.</p>
+  <div class="alumni-grid"><div class="al rv">
+  <div class="al-name">Miito</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Heats liquids directly in the vessel, eliminating excess water heating. Simply fill your cup, place it on the induction base and immerse the rod.</p>
+  <div class="al-win">James Dyson Award Winner · €800K+ on Kickstarter</div>
+</div>
+<div class="al rv d2">
+  <div class="al-name">Senic</div>
+  <span class="al-batch">Batch #1</span>
+  <p class="al-desc">Replaces graphical UIs by turning everyday objects like dials and surfaces into haptic user interfaces. Their Nuimo controller went on to Y Combinator.</p>
+  <div class="al-win">Y Combinator · Crowdfunding 5× oversubscribed</div>
+</div>
+<div class="al rv d3">
+  <div class="al-name">Soundbrenner</div>
+  <span class="al-batch">Batch #3</span>
+  <p class="al-desc">A wearable metronome — the Pulse — letting musicians feel the beat through vibration rather than hearing it.</p>
+  <div class="al-win">250,000+ musicians worldwide · Global retail</div>
+</div>
+<div class="al rv d4">
+  <div class="al-name">LUUV</div>
+  <span class="al-batch">Batch #3</span>
+  <p class="al-desc">A compact, pocket-sized camera stabilizer for smartphones and action cameras. Successfully crowdfunded and distributed internationally.</p>
+  <div class="al-win">Crowdfunding success · International distribution</div>
+</div>
+<div class="al rv">
+  <div class="al-name">Dronamics</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">Building next-gen cargo drones — 350kg payload, 2,500km range — to make same-day international delivery possible.</p>
+  <div class="al-win">Next-gen cargo aviation · International expansion</div>
+</div>
+<div class="al rv d2">
+  <div class="al-name">Quantum Systems</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Hybrid drone combining rotary-wing and fixed-wing systems for 10kg payload over 500km range. Used for humanitarian aid and logistics.</p>
+  <div class="al-win">10kg payload · 500km range</div>
+</div>
+<div class="al rv d3">
+  <div class="al-name">Sensefinity</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">IoT platform for global asset tracking, compliance monitoring, and logistics management.</p>
+  <div class="al-win">Jury's Choice Award · Siemens pilot partnership</div>
+</div>
+<div class="al rv d4">
+  <div class="al-name">Pockethernet</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Pocket-sized smartphone-connected network testing tools for IT professionals. Founded in Berlin 2014.</p>
+  <div class="al-win">Global IT professional tool</div>
+</div>
+<div class="al rv">
+  <div class="al-name">Dorbeetle</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">Autonomous cleaning robot platform for remote property maintenance operations.</p>
+  <div class="al-win">DB Mindbox Wildcard Winner</div>
+</div>
+<div class="al rv d2">
+  <div class="al-name">BioWatch</div>
+  <span class="al-batch">Batch #4</span>
+  <p class="al-desc">Brings vein recognition into wearables for seamless payment and authentication without a phone.</p>
+  <div class="al-win">Biometric wearable security</div>
+</div>
+<div class="al rv d3">
+  <div class="al-name">Joyride</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">Helps bicycle fleet managers and city planners get the data they need to build sustainable bikesharing infrastructure.</p>
+  <div class="al-win">Smart city cycling data</div>
+</div>
+<div class="al rv d4">
+  <div class="al-name">Skysense</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Wireless drone charging pads. Charging is as easy as landing — wide landing area, works with any compatible drone.</p>
+  <div class="al-win">Wireless drone charging pioneer</div>
+</div>
+<div class="al rv">
+  <div class="al-name">Uniti</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">Light, short-range electric vehicles for city use with a safe, futuristic user experience and minimal environmental footprint.</p>
+  <div class="al-win">Urban electric mobility</div>
+</div>
+<div class="al rv d2">
+  <div class="al-name">Car2Ad</div>
+  <span class="al-batch">Batch #4</span>
+  <p class="al-desc">Integrates online marketing with out-of-home advertising via digital billboards on car rooftops. Real-time targeted campaigns.</p>
+  <div class="al-win">Connected OOH advertising</div>
+</div>
+<div class="al rv d3">
+  <div class="al-name">Remora</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">Controls small fishing boats currently unmonitored and heavily subsidised — sustainable and ethical fishing tracking via IoT.</p>
+  <div class="al-win">Sustainable fisheries IoT</div>
+</div>
+<div class="al rv d4">
+  <div class="al-name">BEAD</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">IoT device that analyses and learns day cycles, user behavior and occupancy changes of commercial buildings for energy optimisation.</p>
+  <div class="al-win">Commercial building IoT</div>
+</div>
+<div class="al rv">
+  <div class="al-name">BatSuite</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Wearable device bringing back an extra sense for the visually impaired by translating sonar echo into tactile feedback.</p>
+  <div class="al-win">Assistive wearable technology</div>
+</div>
+<div class="al rv d2">
+  <div class="al-name">eCozy</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Makes homes smarter by turning prosaic household objects into objects of desire. Smart, beautiful home automation hardware.</p>
+  <div class="al-win">Smart home pioneer</div>
+</div>
+<div class="al rv d3">
+  <div class="al-name">Lumind</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">A glowing wrist wearable reminding people with diabetes of their last blood glucose level measurement.</p>
+  <div class="al-win">Medical wearable device</div>
+</div>
+<div class="al rv d4">
+  <div class="al-name">Junkbot</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">A DIY robotics kit helping children build real working robots from unwanted junk. Educational hardware for the next generation.</p>
+  <div class="al-win">Educational robotics kit</div>
+</div>
+<div class="al rv">
+  <div class="al-name">Full Windsor</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Innovative outdoor gear for cyclists and outdoor enthusiasts who appreciate high-quality equipment that performs and lasts.</p>
+  <div class="al-win">Premium cycling gear</div>
+</div>
+<div class="al rv d2">
+  <div class="al-name">Casitoo Design</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Making the flexible distribution of electricity in homes and offices more aesthetically pleasing and accessible.</p>
+  <div class="al-win">Design-forward electrical hardware</div>
+</div>
+<div class="al rv d3">
+  <div class="al-name">Smart Lumies</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Creating the future of early-stage education with embedded technology cubes that communicate with each other.</p>
+  <div class="al-win">EdTech hardware for children</div>
+</div>
+<div class="al rv d4">
+  <div class="al-name">Phrame</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">System turning any car into a car-sharing vehicle. Cardless access, parking integration, and fleet management.</p>
+  <div class="al-win">Car-sharing infrastructure</div>
+</div>
+<div class="al rv">
+  <div class="al-name">Ridelogic</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">IoT platform creating a connected network of motorcycles by abstracting vehicle diagnostics into actionable insights.</p>
+  <div class="al-win">Connected motorcycle IoT</div>
+</div>
+<div class="al rv d2">
+  <div class="al-name">SecondScreen</div>
+  <span class="al-batch">Batch #4</span>
+  <p class="al-desc">Wireless in-vehicle entertainment system generating revenue while delighting passengers.</p>
+  <div class="al-win">Connected mobility entertainment</div>
+</div>
+<div class="al rv d3">
+  <div class="al-name">Bionic Light</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Extreme ultra high-power flashlight connected to your smartphone for intelligent, app-controlled lighting.</p>
+  <div class="al-win">Smart connected flashlight</div>
+</div>
+<div class="al rv d4">
+  <div class="al-name">One Button Phone</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">The easiest phone to use, designed especially for elderly people and their caring relatives.</p>
+  <div class="al-win">Accessible hardware design</div>
+</div>
+<div class="al rv">
+  <div class="al-name">Dox</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">Hardware and software solutions increasing the efficiency of operating and maintaining unmanned systems and drones.</p>
+  <div class="al-win">Drone operations hardware</div>
+</div>
+<div class="al rv d2">
+  <div class="al-name">StoryHome</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Enables you to tell and share stories easily with grandkids, friends, and family through voice and connected hardware.</p>
+  <div class="al-win">Family storytelling device</div>
+</div>
+<div class="al rv d3">
+  <div class="al-name">BINe</div>
+  <span class="al-batch">Batch #4</span>
+  <p class="al-desc">World's first intelligent waste bin with auto-recognition software for sorting Pfand bottles and recyclables automatically.</p>
+  <div class="al-win">Smart waste management</div>
+</div>
+<div class="al rv d4">
+  <div class="al-name">Swocket</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Connected hardware product from the early HARDWARE.co community — an early IoT startup from the Berlin maker scene.</p>
+  <div class="al-win">Early Berlin IoT startup</div>
+</div>
+<div class="al rv">
+  <div class="al-name">Trustless</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">Building CivicNet — a computing ecosystem, platform, and client devices delivering radically open infrastructure.</p>
+  <div class="al-win">Open computing infrastructure</div>
+</div>
+<div class="al rv d2">
+  <div class="al-name">BeaconInside</div>
+  <span class="al-batch">Batch #3</span>
+  <p class="al-desc">Beacon hardware and platform for indoor proximity marketing, analytics, and location-based experiences.</p>
+  <div class="al-win">Indoor proximity platform</div>
+</div>
+<div class="al rv d3">
+  <div class="al-name">Infra</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">Security vulnerability scanner for ethical hackers — continuously scans internal networks for vulnerabilities.</p>
+  <div class="al-win">Hardware security scanning</div>
+</div>
+<div class="al rv d4">
+  <div class="al-name">CloudYourCar</div>
+  <span class="al-batch">Batch #3</span>
+  <p class="al-desc">Car connectivity hub integrating mobile equipment with vehicles in a smart and simple way.</p>
+  <div class="al-win">Connected car hardware</div>
+</div>
+<div class="al rv">
+  <div class="al-name">Time Rift Tours</div>
+  <span class="al-batch">Batch #2</span>
+  <p class="al-desc">Portable stereoscopic headset running 3D simulated versions of historic sites, bridging past and present through VR.</p>
+  <div class="al-win">Historical VR experiences</div>
+</div>
+<div class="al rv d2">
+  <div class="al-name">Headwave</div>
+  <span class="al-batch">Batch #5</span>
+  <p class="al-desc">Motorcycle helmet attachment turning any helmet into a music-capable, vibration-based audio system for riders.</p>
+  <div class="al-win">Helmet audio innovation</div>
+</div>
+<div class="al rv d3">
+  <div class="al-name">CareToSave</div>
+  <span class="al-batch">Batch #3</span>
+  <p class="al-desc">Hardware and software solution helping healthcare providers and patients manage medical data and care more efficiently.</p>
+  <div class="al-win">Healthcare hardware platform</div>
+</div>
+<div class="al rv d4">
+  <div class="al-name">Neurofox</div>
+  <span class="al-batch">Batch #4</span>
+  <p class="al-desc">Blends AI and brain training into a neurotech product. Won the betahaus award at Batch 4 Demo Day.</p>
+  <div class="al-win">betahaus Award Winner · Neurotech</div>
+</div></div>
 </section>
 
-<!-- PARTNERS -->
 <section class="sec-sm sec-bg" id="partners">
-  <p class="tag rv">Partners & Sponsors</p>
+  <p class="tag rv">Partners &amp; Sponsors</p>
   <h2 class="sec-title rv">The companies that made it possible.</h2>
-  <div class="partners-logos rv">
-    <div class="pl"><img src="assets/img/db.png" alt="Deutsche Bahn" /></div>
-    <div class="pl"><img src="assets/img/Siemens_logo.png" alt="Siemens" /></div>
-    <div class="pl"><img src="assets/img/Bosch_logo.png" alt="Bosch" /></div>
-    <div class="pl"><img src="assets/img/Audi-1.png" alt="Audi" /></div>
-    <div class="pl"><img src="assets/img/2000px-Conrad-Electronic-Logo.svg_.png" alt="Conrad Electronic" /></div>
-    <div class="pl"><img src="assets/img/techstars-1.png" alt="Techstars" /></div>
-    <div class="pl"><img src="assets/img/TEF_Next_Lockup_blue_RGB.png" alt="Telefónica Next" /></div>
-    <div class="pl"><img src="assets/img/L-BW-copy-2.png" alt="Telefónica" /></div>
-    <div class="pl"><img src="assets/img/CMS_LawTax_Positive_Black_from101mm.png" alt="CMS Law" /></div>
-    <div class="pl"><img src="assets/img/Sizzle-Logo_mit_Untertitel2-2.png" alt="Sizzle" /></div>
-    <div class="pl"><img src="assets/img/alphaboard-web-logo1.png" alt="Alphaboard" /></div>
-    <div class="pl"><img src="assets/img/PNGPIX-COM-Texas-Instruments-Brands-Logo-PNG-Transparent-1.png" alt="Texas Instruments" /></div>
-    <div class="pl"><img src="assets/img/Formlabs_logo.png" alt="Formlabs" /></div>
-    <div class="pl"><img src="assets/img/logo-copy.png" alt="Saint-Gobain" /></div>
-    <div class="pl"><img src="assets/img/startupSafary-logotype-300x300-3.png" alt="Startup Safari" /></div>
-    <div class="pl"><img src="assets/img/Sigfox_Logo_RGB-1.png" alt="Sigfox" /></div>
-  </div>
+  <div class="partners-logos rv"><div class="pl"><img src="./assets/img/db.png" alt="Deutsche Bahn"></div>
+<div class="pl"><img src="./assets/img/Siemens_logo.png" alt="Siemens"></div>
+<div class="pl"><img src="./assets/img/Bosch_logo.png" alt="Bosch"></div>
+<div class="pl"><img src="./assets/img/Audi-1.png" alt="Audi"></div>
+<div class="pl"><img src="./assets/img/2000px-Conrad-Electronic-Logo.svg_.png" alt="Conrad Electronic"></div>
+<div class="pl"><img src="./assets/img/techstars-1.png" alt="Techstars"></div>
+<div class="pl"><img src="./assets/img/TEF_Next_Lockup_blue_RGB.png" alt="Telefónica Next"></div>
+<div class="pl"><img src="./assets/img/L-BW-copy-2.png" alt="Telefónica"></div>
+<div class="pl"><img src="./assets/img/CMS_LawTax_Positive_Black_from101mm.png" alt="CMS Law"></div>
+<div class="pl"><img src="./assets/img/Sizzle-Logo_mit_Untertitel2-2.png" alt="Sizzle"></div>
+<div class="pl"><img src="./assets/img/alphaboard-web-logo1.png" alt="Alphaboard"></div>
+<div class="pl"><img src="./assets/img/PNGPIX-COM-Texas-Instruments-Brands-Logo-PNG-Transparent-1.png" alt="Texas Instruments"></div>
+<div class="pl"><img src="./assets/img/Formlabs_logo.png" alt="Formlabs"></div>
+<div class="pl"><img src="./assets/img/logo-copy.png" alt="Saint-Gobain"></div>
+<div class="pl"><img src="./assets/img/startupSafary-logotype-300x300-3.png" alt="Startup Safari"></div>
+<div class="pl"><img src="./assets/img/Sigfox_Logo_RGB-1.png" alt="Sigfox"></div></div>
 </section>
 
-<!-- TESTIMONIAL -->
 <div class="testimonial">
   <div class="t-inner rv">
     <div class="tq">"</div>
     <div class="t-text">
-      <p>For us at Conrad, the passion for hardware and technology inherent at HARDWARE.co makes it a great partner. By working together, we are able to identify great hardware startups and projects. Success stories such as WunderBar, OptoForce or KIWI.KI demonstrate how Conrad and such hardware startups get to know each other and subsequently work towards a common goal, such as launching products or enabling services.</p>
-      <div class="t-attr">
-        Dr. Alexander Pöschl
-        <span>Head of Corporate Development, Conrad Electronic SE</span>
-      </div>
+      <p>For us at Conrad, the passion for hardware and technology inherent at HARDWARE.co makes it a great partner. By working together, we are able to identify great hardware startups and projects. Success stories such as WunderBar, OptoForce or KIWI.KI demonstrate how Conrad and such hardware startups work towards a common goal, such as launching products or enabling services.</p>
+      <div class="t-attr">Dr. Alexander Pöschl<span>Head of Corporate Development, Conrad Electronic SE</span></div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
+<section class="sec sec-bg" id="blog-preview">
+  <p class="tag rv">Blog</p>
+  <h2 class="sec-title rv">From the community.</h2>
+  <p class="sec-sub rv">Stories, learnings, and news from HARDWARE.co batches, alumni, and the Berlin hardware scene.</p>
+  <div class="blog-grid"><a href="/batch-6-wrap-get-ready-batch-7/" class="bc rv">
+  <div class="bc-cat">Recap</div>
+  <div class="bc-t">Batch 6 is a wrap! Get ready for Batch 7!</div>
+  <p class="bc-x">Last Monday, our two-week intensive accelerator program with Batch 6 came to an end with a beautiful Show & Tell event. 8 Startups working to improve our qualit</p>
+  <div class="bc-date">August 3, 2017</div>
+</a>
+<a href="/meetbatch6/" class="bc rv">
+  <div class="bc-cat">Accelerator</div>
+  <div class="bc-t">8 hardware and IoT startups lifting our quality of life: Meet Hardware.co Accelerator’s Batch #6</div>
+  <p class="bc-x">After Hardware.co’s last batch of startups pitched mobility and logistics solutions with practical applications for some of the world’s toughest social and econ</p>
+  <div class="bc-date">July 14, 2017</div>
+</a>
+<a href="/applications-open-hardware-co-batch-6-quality-life/" class="bc rv">
+  <div class="bc-cat">Accelerator</div>
+  <div class="bc-t">Batch 6 - Quality of Life</div>
+  <p class="bc-x">Hardware.co is back with a new accelerator program running from July 17th to the 31st! With the world in mind this batch is themed Quality of Life, and we’re lo</p>
+  <div class="bc-date">May 2, 2017</div>
+</a></div>
+  <div style="text-align:center;margin-top:36px">
+    <a href="/blog/" class="btn-o rv">View all 21 posts →</a>
+  </div>
+</section>
+
 <footer>
   <div class="footer-top">
     <div class="fb">
-      <span class="logo">HARDWARE<span style="color:var(--orange)">.co</span></span>
+      <a href="/" class="logo">HARDWARE<span>.co</span></a>
       <p>A global community and accelerator for entrepreneurs, industry professionals and makers dedicated to the creation of innovative hardware products and companies. Berlin, 2013–2017.</p>
       <span class="powered">Powered by</span>
-      <div class="pw-logos">
-        <span>DB Mindbox</span>
-        <span>betahaus</span>
-      </div>
+      <div class="pw-logos"><span>DB Mindbox</span><span>betahaus</span></div>
       <div class="footer-social">
         <a href="https://www.facebook.com/hardwaredotco" target="_blank" rel="noopener">Facebook</a>
         <a href="https://twitter.com/hardwaredotco" target="_blank" rel="noopener">Twitter</a>
-        <a href="/cdn-cgi/l/email-protection#2c45424a436c444d5e485b4d5e49024f43">Email</a>
+        <a href="mailto:info@hardware.co">Email</a>
       </div>
     </div>
-    <div class="fc">
-      <h4>This Page</h4>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#accelerator">Accelerator</a></li>
-        <li><a href="#alumni">Alumni</a></li>
-        <li><a href="#partners">Partners</a></li>
-      </ul>
-    </div>
-    <div class="fc">
-      <h4>Links</h4>
-      <ul>
-        <li><a href="https://betahaus.com" target="_blank" rel="noopener">betahaus Berlin</a></li>
-        <li><a href="https://www.linkedin.com/company/berlin-hardware-accelerator" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#6b02050d042b030a190f1c0a190e450804"><span class="__cf_email__" data-cfemail="89e0e7efe6c9e1e8fbedfee8fbeca7eae6">[email&#160;protected]</span></a></li>
-      </ul>
-    </div>
-    <div class="fc">
-      <h4>Community</h4>
-      <ul>
-        <li><a href="https://betahaus.com" target="_blank" rel="noopener">betahaus Berlin</a></li>
-        <li><a href="https://www.linkedin.com/company/berlin-hardware-accelerator" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
+    <div class="fc"><h4>This Page</h4><ul>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#accelerator">Accelerator</a></li>
+      <li><a href="/#alumni">Alumni</a></li>
+      <li><a href="/#partners">Partners</a></li>
+    </ul></div>
+    <div class="fc"><h4>Blog</h4><ul><li><a href="/batch-6-wrap-get-ready-batch-7/">Batch 6 is a wrap! Get ready for Batch 7!</a></li>
+<li><a href="/meetbatch6/">8 hardware and IoT startups lifting our qu…</a></li>
+<li><a href="/applications-open-hardware-co-batch-6-quality-life/">Batch 6 - Quality of Life</a></li>
+<li><a href="/batch5demoday/">Inspiring IoT pitches, interactive sounds …</a></li>
+<li><a href="/meetbatch5/">Eight startups to revolutionise transport,…</a></li><li><a href="/blog/">All posts →</a></li></ul></div>
+    <div class="fc"><h4>Community</h4><ul>
+      <li><a href="https://betahaus.com" target="_blank" rel="noopener">betahaus Berlin</a></li>
+      <li><a href="https://www.linkedin.com/company/berlin-hardware-accelerator" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="mailto:info@hardware.co">info@hardware.co</a></li>
+    </ul></div>
   </div>
   <div class="footer-bot">
     <span>© HARDWARE.co · Kreuzberg, Berlin · 2013–2017</span>
     <span>Built with wget, love, and a lot of hardware</span>
   </div>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decod
+<script>
+const els=document.querySelectorAll('.rv');
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:0.06});
+els.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
