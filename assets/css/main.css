@@ -16,8 +16,9 @@ img{max-width:100%;display:block}
 .btn-g{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.4);font-family:var(--B);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:12px 30px;display:inline-block;transition:border-color .2s}
 .btn-g:hover{border-color:rgba(255,255,255,.8)}
 nav{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--nav);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px}
-.logo{font-family:var(--D);font-size:26px;font-weight:700;color:var(--white);letter-spacing:.03em;text-transform:uppercase}
-.logo span{color:var(--orange)}
+.logo{display:flex;align-items:center}
+.logo-img{height:30px;width:auto;display:block;background:#fff;padding:3px 8px;border-radius:2px}
+.footer-logo-img{height:26px;background:rgba(255,255,255,0.9)}
 nav ul{display:flex;gap:36px;list-style:none}
 nav ul a{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);transition:color .2s}
 nav ul a:hover{color:var(--orange)}
@@ -126,7 +127,7 @@ nav ul a:hover{color:var(--orange)}
 .sidebar-date{font-size:11px;color:#aaa;display:block;margin-top:3px}
 footer{background:#1a1a1a;padding:52px 80px 32px}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.fb .logo{display:block;margin-bottom:14px;font-size:22px}
+.fb .logo{display:block;margin-bottom:14px}
 .fb p{font-size:13px;color:rgba(255,255,255,.35);line-height:1.75;font-weight:300;max-width:260px}
 .powered{margin-top:18px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.18);display:block;margin-bottom:6px}
 .pw-logos{display:flex;gap:14px;align-items:center;margin-top:6px}
